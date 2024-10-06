@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>ProtectU by Cybersquad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Custom Pink Theme */
+        body {
+            background-color: #ffe6f2;
+            color: #333;
+        }
+        header, footer {
+            background-color: #ff66b2;
+            color: #fff;
+        }
+        .wrapper.style2 .box {
+            background-color: #ffe6f2;
+        }
+        .wrapper.style3 {
+            background-color: #ff99cc;
+        }
+        .button {
+            background-color: #ff66b2;
+            color: #fff;
+        }
+        .button.special {
+            background-color: #ff3399;
+        }
+        ul.actions .button.alt {
+            border-color: #ff3399;
+            color: #ff3399;
+        }
+        /* Animated quiz styles */
+        #quiz {
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .question:hover {
+            transform: scale(1.02);
+            background-color: #fff0f5;
+            cursor: pointer;
+        }
+        .option {
+            background-color: #fff;
+            border: 2px solid #ff66b2;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 5px 0;
+            transition: background-color 0.3s, border 0.3s;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #ff66b2;
+            color: #fff;
+            border-color: #ff3399;
+        }
+        .selected {
+            background-color: #ff66b2;
+            color: #fff;
+        }
+        .youtube-video {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .youtube-video iframe {
+            width: 80%;
+            height: 315px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <div class="logo"><a href="index.html">ProtectU <span>by Cybersquad</span></a></div>
+        <a href="#menu" class="toggle"><span>Menu</span></a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="/chatbot_security/public/cybersec.html">Cyber Protection</a></li>
+            <li><a href="/chatbot_security/chatbot_security/public/index.html">Our Chatbot</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner with Video Background -->
+    <section id="banner">
+        <div class="inner">
+            <h1>ProtectU</h1>
+            <p>A supportive and empowering platform dedicated to safeguarding women online<br />
+                We provide resources and tools for online safety.</p>
+            <a href="#quiz" class="button special scrolly">Get Started</a>
+        </div>
+        <video autoplay muted loop>
+            <source src="assets/videos/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+	<section id="phishing-detection" class="phishing-section">
+        <h2>Check If a Link is Safe</h2>
+        <p>Paste a link below to verify if it's a phishing or safe URL.</p>
+        <form id="phishing-form">
+            <label for="phishing-url">Enter URL:</label>
+            <input type="text" id="phishing-url" placeholder="https://example.com">
+            <button type="button" onclick="analyzeLink()">Analyze</button>
+        </form>
+        <p id="phishing-result"></p>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="wrapper style2">
+        <div class="inner">
+            <header class="align-center">
+                <h2>Take the Online Safety Quiz</h2>
+                <p>Test your knowledge on staying safe online.</p>
+            </header>
+            <hr />
+            <form id="quiz-form">
+                <!-- Question 1 -->
+                <div class="question">
+                    <legend>1. What should you do if you receive an unknown email attachment?</legend>
+                    <div class="option" onclick="selectOption(this, 'question1', 'a')">Open it to see what it is</div>
+                    <div class="option" onclick="selectOption(this, 'question1', 'b')">Ignore or delete it</div>
+                    <div class="option" onclick="selectOption(this, 'question1', 'c')">Forward it to a friend</div>
+                </div>
+                <!-- Question 2 -->
+                <div class="question">
+                    <legend>2. What is catfishing?</legend>
+                    <div class="option" onclick="selectOption(this, 'question2', 'a')">A type of malware</div>
+                    <div class="option" onclick="selectOption(this, 'question2', 'b')">Pretending to be someone else online</div>
+                    <div class="option" onclick="selectOption(this, 'question2', 'c')">A way to steal money</div>
+                </div>
+                <!-- Question 3 -->
+                <div class="question">
+                    <legend>3. What should you do if you are harassed online?</legend>
+                    <div class="option" onclick="selectOption(this, 'question3', 'a')">Respond to the harassment</div>
+                    <div class="option" onclick="selectOption(this, 'question3', 'b')">Block the user and report it</div>
+                    <div class="option" onclick="selectOption(this, 'question3', 'c')">Ignore it and do nothing</div>
+                </div>
+                <!-- New Questions -->
+                <div class="question">
+                    <legend>4. What is ransomware?</legend>
+                    <div class="option" onclick="selectOption(this, 'question4', 'a')">A type of virus that steals your data</div>
+                    <div class="option" onclick="selectOption(this, 'question4', 'b')">A program that locks your computer and demands payment</div>
+                    <div class="option" onclick="selectOption(this, 'question4', 'c')">An email scam</div>
+                </div>
+                <div class="question">
+                    <legend>5. How can you protect your online accounts?</legend>
+                    <div class="option" onclick="selectOption(this, 'question5', 'a')">Use the same password for all accounts</div>
+                    <div class="option" onclick="selectOption(this, 'question5', 'b')">Enable two-factor authentication</div>
+                    <div class="option" onclick="selectOption(this, 'question5', 'c')">Share your password with friends</div>
+                </div>
+                <div class="question">
+                    <legend>6. What should you do if someone is sharing your private information online?</legend>
+                    <div class="option" onclick="selectOption(this, 'question6', 'a')">Ignore it</div>
+                    <div class="option" onclick="selectOption(this, 'question6', 'b')">Contact the platform and report it</div>
+                    <div class="option" onclick="selectOption(this, 'question6', 'c')">Share more personal information</div>
+                </div>
+                <ul class="actions align-center">
+                    <li><input type="button" value="Submit Quiz" class="button special" onclick="submitQuiz()"></li>
+                </ul>
+            </form>
+
+            <!-- YouTube Videos Section -->
+			<h2>Learn More</h2>
+			<p>Watch these informative videos about online safety:</p>
+			
+			<div class="youtube-video">
+				<iframe src="https://www.youtube.com/embed/UYFeybMKWxE" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<p>Understanding Catfishing: <a href="https://www.youtube.com/watch?v=UYFeybMKWxE" target="_blank">Watch Here</a></p>
+			
+			<div class="youtube-video">
+				<iframe src="https://www.youtube.com/embed/DRnTJBZXeA4" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<p>Online Harassment Awareness: <a href="https://www.youtube.com/watch?v=DRnTJBZXeA4" target="_blank">Watch Here</a></p>
+			
+			<div class="youtube-video">
+				<iframe src="https://www.youtube.com/embed/fc2tbHWZu4I" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<p>What is Ransomware?: <a href="https://www.youtube.com/watch?v=fc2tbHWZu4I" target="_blank">Watch Here</a></p>
+			
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper">
+        <div class="inner">
+            <section>
+                <div class="box">
+                    <div class="content">
+                        <h3>Contact Us</h3>
+                        <form method="post" action="#">
+                            <div class="field half first">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" required />
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" required />
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="4" required></textarea>
+                            </div>
+                            <ul class="actions align-right">
+                                <li><input type="submit" value="Send Message" class="button special"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+    <script>
+        function selectOption(element, questionId, option) {
+            // Remove selected class from other options
+            const options = document.querySelectorAll(`.${questionId} .option`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            // Add selected class to the clicked option
+            element.classList.add('selected');
+        }
+
+        function submitQuiz() {
+            alert('Thank you for taking the quiz! Your answers have been recorded.');
+            // Here, you could also handle quiz answer processing
+        }
+
+
+		async function analyzeLink() {
+            const url = document.getElementById('phishing-url').value;
+            const resultElement = document.getElementById('phishing-result');
+
+            if (!url) {
+                resultElement.textContent = 'Please enter a URL';
+                return;
+            }
+
+            try {
+                // Call your local backend API
+                const response = await fetch('http://localhost:3000/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                resultElement.textContent = result.message;
+            } catch (error) {
+                resultElement.textContent = 'Error analyzing the URL. Please try again.';
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+		
+
+	</body>
+</html>
